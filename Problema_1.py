@@ -7,8 +7,8 @@ def local_histogram_equalization(image, window_height, window_width):
 
     # Calculamos la mitad de la anchura y altura de la imagen. Esto es para crear los bordes luego a la imagen original
     # y asi no tener problemas cuando la ventana pase por los pixeles pegados a estos.
-    half_height = (window_height - 1) // 2
-    half_width = (window_width - 1) // 2
+    half_height = (window_height - 1) // 2 if window_height % 2 != 0 else window_height // 2
+    half_width = (window_width - 1) // 2 if window_width % 2 != 0 else window_width // 2
 
     # Aplicamos un filtro de mediana para reducir el ruido
     image = cv2.medianBlur(image, 3)
