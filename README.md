@@ -1,8 +1,8 @@
-# TP1 Procesamiento_de_Imagenes
+# TP1 Procesamiento de Imágenes
 
-## Instrucciones para Ejecutar "Problema_1.py" y "Problema_2.py"
+## Instrucciones para ejecutar el Trabajo Práctico
 
-Este repositorio contiene dos archivos de Python, "Problema_1.py" y "Problema_2.py", que se utilizan para la resolución de las consignas solicitadas en el Trabajo Práctico Nº 1. 
+Este repositorio contiene dos archivos de Python, "Problema_1.py" y "Problema_2.py", que se utilizan para la resolución de las consignas solicitadas en el Trabajo Práctico Nº 1. También contiene un directorio empleado para almacenar las imágenes requeridas en cada uno de los problemas. 
 
 A continuación, se detallan los pasos para ejecutar estos archivos en tu entorno de desarrollo.
 
