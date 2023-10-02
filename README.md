@@ -13,5 +13,14 @@ Antes de ejecutar los archivos, asegúrate de tener instalado Python en tu siste
 Además, es posible que necesites instalar algunas bibliotecas Python adicionales. Puedes hacerlo utilizando el administrador de paquetes `pip`. Ejecuta los siguientes comandos para instalar las bibliotecas necesarias (OpenCV - MathPlotLib - Numpy):
 
 ```bash
-pip install biblioteca1 biblioteca2  # Reemplaza "biblioteca1" y "biblioteca2" por los nombres reales de las bibliotecas necesarias.
+pip install opencv matplotlib numpy 
 
+## Ejecución del Problema_1
+
+> Indicaciones
+> Indicaciones
+
+## Ejecución del Problema_2
+
+* Indicaciones
+* Indicaciones
