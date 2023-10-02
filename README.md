@@ -41,7 +41,7 @@ El archivo "Problema_2.py" se utiliza para validar campos en un formulario de im
 
 El script procesará la imagen y mostrará los resultados en la consola, indicando si los campos del formulario cumplen con ciertas restricciones indicadas para cada caso.
 
-** Advertencias **
+## Advertencias
 
 * Asegúrese de que las imágenes de entrada estén en el formato correcto y tengan el nombre adecuado según las instrucciones de cada archivo.
 
