@@ -6,7 +6,7 @@ def local_histogram_equalization(image, window_height, window_width):
     rows, cols = image.shape
 
     # Calculamos la mitad de la anchura y altura de la imagen. Esto es para crear los bordes luego a la imagen original
-    # y asi no tener problemas cuando la ventana pase por los pixeles pegados a estos.
+    # y asi no tener problemas cuando la ventana pase por los píxeles pegados a estos.
     half_height = (window_height - 1) // 2 if window_height % 2 != 0 else window_height // 2
     half_width = (window_width - 1) // 2 if window_width % 2 != 0 else window_width // 2
 
@@ -34,7 +34,7 @@ def local_histogram_equalization(image, window_height, window_width):
 
     return image
 
-# Cargamos la imagen de entrad
+# Cargamos la imagen de entrada
 input_image = cv2.imread('Imagenes\Problema_1\Imagen_con_detalles_escondidos.tif', cv2.IMREAD_GRAYSCALE)
 
 # Tamaño de la ventana para el procesamiento local

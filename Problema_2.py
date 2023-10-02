@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 def contador_celdas(imagen):
 
-    ''' Funcion que recibe la celda donde estan los datos a validar en un determinado renglon del formulario
+    ''' Función que recibe la celda donde están los datos a validar en un determinado renglón del formulario
     y devuelve la cantidad de caracteres y de palabras'''
 
     # Umbralamos para que nos quede imagen binaria y bien marcadas las letras
@@ -20,7 +20,7 @@ def contador_celdas(imagen):
 
     # Umbralado para que no se cuente como componentes lo que haya quedado de los bordes del campo. 
     # En nuestro caso los renglones nos quedaron con grande areas de los bordes, por eso filtramos
-    # quedandonos con los elemenos con menor area que son las letras
+    # quedándonos con los elementos de menor area que son las letras
     indice_area = estadisticas[:, -1] < 200
     estadisticas = estadisticas[indice_area,:]
     
@@ -50,16 +50,16 @@ def contador_celdas(imagen):
     # Si hay 0 caracteres hay 0 palabras
     else: cantidad_palabras = 0
 
-    # Devolvemos la cantidad de caracteres y palabras del renglon en cuestion
+    # Devolvemos la cantidad de caracteres y palabras del renglon en cuestión
     return cantidad_caracteres, cantidad_palabras
 
 def validacion_formulario(imagen):
 
-    ''' Funcion que recibe una imagen del formulario como matriz y devuelve la validacion de los campos del 
+    ''' Función que recibe una imagen del formulario como matriz y devuelve la validacion de los campos del 
     mismo'''
 
     # Umbralamos para que las lineas de las columnas y las filas nos queden de un pixel de ancho.
-    # El valor se eligio experimentalmente
+    # El valor se eligió experimentalmente
     img_th = img < 100
 
     # Buscar las columnas del formulario:
@@ -73,10 +73,10 @@ def validacion_formulario(imagen):
     img_cols_th = img_cols > 160
 
     # Buscamos los valores de los indices en los que estan dichas columnas. Y reorganizamos el array
-    # por una cuestion de comodidad a la hora de manipularlo.
+    # por una cuestión de comodidad a la hora de manipularlo.
     img_cols_indices = np.argwhere(img_cols_th).reshape(1, -1)
 
-    # Repetimos lo mismo con las filas:
+    # Repetimos el procedimiento con las filas:
     img_rows = np.sum(img_th,axis=1)
     img_rows_th = img_rows > 900
     img_rows_indices = np.argwhere(img_rows_th).reshape(1, -1)
@@ -94,9 +94,9 @@ def validacion_formulario(imagen):
             continue
         else:
 
-            # Si estamos en el renglon de nombre y apellido
+            # Si estamos en el renglón de nombre y apellido
             if numero_renglon == 2:
-                # Pasamos a contador_celdas() el crop de la celda que nos interesa del renglon en cuestion
+                # Pasamos a contador_celdas() el crop de la celda que nos interesa del renglón en cuestión
                 # con las filas correspondientes y siempre nos quedamos con los pixeles de las columnas donde se encuentran
                 # los datos (en nuestra lista siempre se guardan en la posicion 1 y 3)
                 cantidad_caracteres_renglon, cantidad_palabras_renglon = contador_celdas( img[ img_rows_indices[0][j]:img_rows_indices[0][j+1], img_cols_indices[0][1]:img_cols_indices[0][3] ] )
@@ -105,7 +105,7 @@ def validacion_formulario(imagen):
                     estadisticas_formulario['nombre_y_apellido']='OK'
                 else: estadisticas_formulario['nombre_y_apellido']='MAL'
             
-            # Repetimos lo mismo para cada uno de los renglones con sus respectivas reestricciones
+            # Repetimos el procedimiento para cada uno de los renglones con sus respectivas restricciones
             elif numero_renglon == 3:
                 cantidad_caracteres_renglon, cantidad_palabras_renglon = contador_celdas( img[ img_rows_indices[0][j]:img_rows_indices[0][j+1], img_cols_indices[0][1]:img_cols_indices[0][3] ] )
                 if cantidad_caracteres_renglon in [2,3] and cantidad_palabras_renglon == 1:
@@ -154,4 +154,11 @@ def validacion_formulario(imagen):
 img = cv2.imread('formulario_01.png', cv2.IMREAD_GRAYSCALE)
 
 # Imprimimos la validacion
-print(validacion_formulario(img))
+# print(validacion_formulario(img))
+
+# Llamamos a la función y almacenamos el diccionario de resultados
+estadisticas_formulario = validacion_formulario(img)
+
+# Recorremos el diccionario y mostramos los resultados en líneas separadas
+for campo, estado in estadisticas_formulario.items():
+    print(f"{campo}: {estado}")
