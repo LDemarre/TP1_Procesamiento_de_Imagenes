@@ -8,7 +8,7 @@ def contador_celdas(imagen):
     y devuelve la cantidad de caracteres y de palabras'''
 
     # Umbralamos para que nos quede imagen binaria y bien marcadas las letras
-    imagen_umbralada = imagen < 100
+    imagen_umbralada = imagen < 120
 
     # Casteo a uint8 para poder usar connectedComponentsWithStats()
     imagen_umbralada = imagen_umbralada.astype(np.uint8)
